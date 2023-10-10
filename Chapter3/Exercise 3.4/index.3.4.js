@@ -10,10 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => res.render("login.pug"));
 
 app.post("/login", (req, res) => {
-  //  const { username, password } = ;
-  return res.send(
-    `username: ${req.body.username} password: ${req.body.password}`
-  );
+  const { username, password } = req.body;
+  console.log(req.body);
+  return res.send(`username: ${username} password: ${password}`);
 });
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
